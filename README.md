@@ -2,6 +2,7 @@
 [![Scala Package](https://github.com/lcheng6/dataframe-rules-engine/actions/workflows/scala-package.yml/badge.svg?branch=master)](https://github.com/lcheng6/dataframe-rules-engine/actions/workflows/scala-package.yml)s
 [![Scala Whitesource Scan](https://github.com/lcheng6/dataframe-rules-engine/actions/workflows/scala-whitesource.yml/badge.svg?branch=master)](https://github.com/lcheng6/dataframe-rules-engine/actions/workflows/scala-whitesource.yml)
 [![Scala Whitesource Scan](https://github.com/lcheng6/dataframe-rules-engine/actions/workflows/scala-checkmarx.yml/badge.svg?branch=master)](https://github.com/lcheng6/dataframe-rules-engine/actions/workflows/scala-checkmarx.yml)
+[![Latest Release](https://img.shields.io/github/v/release/checkmarx-ts/checkmarx-github-action)](https://github.com/lcheng6/dataframe-rules-engine/releases)
 [![codecov](https://codecov.io/gh/lcheng6/dataframe-rules-engine/branch/master/graph/badge.svg?token=85BCTDRA84)](https://codecov.io/gh/lcheng6/dataframe-rules-engine)
 # dataframe-rules-engine
 Simplified Validation at scale for Production Spark Workloads on streaming / standard DataFrames and DataSets
