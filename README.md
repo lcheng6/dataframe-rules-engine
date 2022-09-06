@@ -5,7 +5,7 @@
 [![Latest Release](https://img.shields.io/github/v/release/checkmarx-ts/checkmarx-github-action)](https://github.com/lcheng6/dataframe-rules-engine/releases)
 [![codecov](https://codecov.io/gh/lcheng6/dataframe-rules-engine/branch/master/graph/badge.svg?token=85BCTDRA84)](https://codecov.io/gh/lcheng6/dataframe-rules-engine)
 # dataframe-rules-engine
-Simplified Validation at scale for Production Spark Workloads on streaming / standard DataFrames and DataSets
+Simplified Validation at scale for Production Spark Workloads on streaming / standard DataFrames and DataSets 
 
 ## Project Description
 As pipelines move from bronze to gold, it's very common that some level of governance be performed in
