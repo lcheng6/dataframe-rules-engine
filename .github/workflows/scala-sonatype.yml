@@ -19,12 +19,12 @@ jobs:
         with:
           args: >
             -Dsonar.organization=lcheng6
-            -Dsonar.projectKey=dataframe-rules-engine
+            -Dsonar.projectKey=lcheng6_dataframe-rules-engine
 #            -Dsonar.python.coverage.reportPaths=coverage.xml
 #            -Dsonar.sources=lib/
 #            -Dsonar.test.exclusions=tests/**
 #            -Dsonar.tests=tests/
-#            -Dsonar.verbose=true
+            -Dsonar.verbose=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
