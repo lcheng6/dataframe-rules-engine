@@ -2,7 +2,7 @@ name := "dataframe-rules-engine"
 
 organization := "com.databricks.labs"
 
-version := "0.2.0"
+version := "1.x-SNAPSHOT"
 
 scalaVersion := "2.12.12"
 scalacOptions ++= Seq("-Xmax-classfile-name", "78")
