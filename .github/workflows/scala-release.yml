@@ -49,17 +49,17 @@ jobs:
           key: ${{ runner.os }}-sbt-cache-v2-${{ hashFiles('**/*.sbt') }}-${{ hashFiles('project/build.properties') }}
 
       - name: Extract tag name
-        id: get_tag
+        id: get_tag_version
         uses: actions/github-script@0.2.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            return context.payload.ref.replace(/\/refs\/tags\//, '');
+            return context.payload.ref.replace(/\/refs\/tags\/v/, '');
 
       - name: compile and package
         shell: bash
         run: |
-          sbt ++${{ matrix.scala }} 'version: = "${{ steps.get_tag.outputs.result }}"' compile package
+          sbt ++${{ matrix.scala }} 'version: = "${{ steps.get_tag_version.outputs.result }}"' compile package
 
       - name: Compress target directories
         shell: bash
@@ -70,8 +70,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.get_tag.outputs.result }}
-          release_name: Release ${{ steps.get_tag.outputs.result }}
+          tag_name: ${{ steps.get_tag_version.outputs.result }}
+          release_name: Release ${{ steps.get_tag_version.outputs.result }}
           draft: true
           prerelease: false
 
