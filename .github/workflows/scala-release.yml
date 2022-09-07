@@ -59,7 +59,7 @@ jobs:
       - name: compile and package
         shell: bash
         run: |
-          sbt ++${{ matrix.scala }} 'version: = ${{ steps.get_tag_version.outputs.result }}' compile package
+          sbt ++${{ matrix.scala }} 'version := ${{ steps.get_tag_version.outputs.result }}' compile package
 
       - name: Compress target directories
         shell: bash
