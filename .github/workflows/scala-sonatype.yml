@@ -1,4 +1,4 @@
-name: Scala Sonatype / SonarCloud Scan
+name: Scala SonarCloud Scan
 
 on:
   push:
