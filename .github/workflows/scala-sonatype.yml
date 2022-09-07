@@ -1,4 +1,4 @@
-name: Scala WhiteSource Scan
+name: Scala Sonatype / SonarCloud Scan
 
 on:
   push:
