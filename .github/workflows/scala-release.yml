@@ -66,6 +66,7 @@ jobs:
         run: tar cf targets.tar target project/target
 
       - name: Create Release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -78,12 +79,16 @@ jobs:
       - name: Upload target directories
         uses: actions/upload-artifact@v2
         with:
-          name: target-${{ matrix.os }}-${{ matrix.scala }}-${{ matrix.java }}
+          name: target-${{ matrix.os }}-${{ matrix.scala }}-${{ matrix.java }}-Release-v${{ steps.get_tag_version.outputs.result }}
           path: targets.tar
 
-#      - name: Upload Release Asset
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: target-${{ matrix.os }}-${{ matrix.scala }}-${{ matrix.java }}-Release-${{ github.ref }}
-#          path: targets.tar
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./targets.tar
+          asset_name: targets.tar
+
 
