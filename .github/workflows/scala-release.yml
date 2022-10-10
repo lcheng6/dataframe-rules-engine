@@ -36,18 +36,6 @@ jobs:
           distribution: temurin
           java-version: 11
 
-      - name: Cache sbt
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.sbt
-            ~/.ivy2/cache
-            ~/.coursier/cache/v1
-            ~/.cache/coursier/v1
-            ~/AppData/Local/Coursier/Cache/v1
-            ~/Library/Caches/Coursier/v1
-          key: ${{ runner.os }}-sbt-cache-v2-${{ hashFiles('**/*.sbt') }}-${{ hashFiles('project/build.properties') }}
-
       - name: Extract tag name
         id: get_tag_version
         uses: actions/github-script@0.2.0
@@ -56,10 +44,11 @@ jobs:
           script: |
             return context.payload.ref.replace(/refs\/tags\/v/, '');
 
-      - name: compile and package
+      - name: Set Maven POM output name to that of the tag
         shell: bash
         run: |
-          sbt ++${{ matrix.scala }} 'set version := ${{ steps.get_tag_version.outputs.result }}' compile package
+          mvn versions:set -DnewVersion=${{ steps.get_tag_version.outputs.result }}
+          mvn package
 
       - name: Compress target directories
         shell: bash
